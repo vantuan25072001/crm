@@ -52,10 +52,6 @@ export default function Setting() {
             Sms Brandname
           </Link>
 
-          <Link className={styles.main_setting_item} href="/setting/zalo">
-            Zalo
-          </Link>
-
           <Link
             className={styles.main_setting_item}
             href="/setting/switch_board"
