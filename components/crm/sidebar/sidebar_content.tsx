@@ -378,7 +378,7 @@ export default function SiebarContent({ isOpen, toggleModal }: any) {
       if (data && data?.data) {
         setInfoRole(data?.data?.roles);
       }
-    } catch (error) { }
+    } catch (error) {}
   };
   useEffect(() => {
     handleGetThongTinQuyen();

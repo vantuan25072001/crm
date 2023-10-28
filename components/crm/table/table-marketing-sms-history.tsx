@@ -106,25 +106,11 @@ interface TableDataSMSFormProps {
 }
 
 const TableDataSMSForm: React.FC<TableDataSMSFormProps> = (any) => {
-  const [searchText, setSearchText] = useState("");
-
-  const filteredData = data.filter((item) =>
-    item.id.toString().includes(searchText)
-  );
   return (
     <div style={{ marginTop: "20px" }}>
-      <input
-        type="text"
-        placeholder="Tìm kiếm theo ID"
-        value={searchText}
-        onChange={(e) => {
-          setSearchText(e.target.value);
-        }}
-      />
-
       <Table
         columns={columns}
-        dataSource={filteredData}
+        dataSource={data}
         bordered
         scroll={{ x: 1500, y: 400 }}
       />

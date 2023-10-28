@@ -20,7 +20,7 @@ const SMSCaNhanTable: React.FC = () => {
   }: any = useHeader();
 
   useEffect(() => {
-    setHeaderTitle("Cài đặt/ SMS Brandname");
+    setHeaderTitle("Cài đặt/ SMS Zalo");
     setShowBackButton(true);
     setCurrentPath("/setting/main");
   }, [setHeaderTitle, setShowBackButton, setCurrentPath]);
@@ -29,18 +29,18 @@ const SMSCaNhanTable: React.FC = () => {
     <div className={style.main__setting_email}>
       <div className={style.setting_email_body}>
         <p className={style.setting_email_body__title}>
-          Thiết lập Email Marketing
+          Thiết lập Zalo Marketing
         </p>
-        <p>Kết nối Email để thực hiện các chiến dịch Email Marketting </p>
+        <p>Kết nối Email để thực hiện các chiến dịch Zalo Marketting </p>
         <div className={style.setting_email_body__connect}>
           <div className={style.setting_email_body__connect_item}>
             <img
               style={{ height: "60px", width: "70%" }}
               className={style.connect_img}
-              src="/crm/fpt.svg"
+              src="/crm/zalo.svg"
             />
-            <p className={style.connect_title}>FPT</p>
-            <Link href="sms/add_fpt">
+            <p className={style.connect_title}>Zalo</p>
+            <Link href="sms/add_zalo">
               <button className={style.connect_button}>Kết nối</button>
             </Link>
           </div>
