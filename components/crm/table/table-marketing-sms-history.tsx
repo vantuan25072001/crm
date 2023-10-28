@@ -1,5 +1,6 @@
-import React from "react";
-import { Table, Tooltip } from "antd";
+import React, { useState } from "react";
+import { Switch, Table, Tooltip } from "antd";
+
 import type { ColumnsType } from "antd/es/table";
 import { TableRowSelection } from "antd/es/table/interface";
 import MarketingSMSHistoryActionTable from "../marketing/sms/sms_history_action_table";
@@ -35,9 +36,7 @@ const columns: ColumnsType<DataType> = [
     width: 250,
     dataIndex: "object",
     key: "2",
-    render: () => (
-     <Link href="sms/detail">Nguyễn Trần Kim Phượng</Link>
-    ),
+    render: () => <Link href="sms/detail">Nguyễn Trần Kim Phượng</Link>,
   },
   {
     title: "Trạng thái",
@@ -80,9 +79,8 @@ const columns: ColumnsType<DataType> = [
     dataIndex: "operation",
     key: "9",
     width: 120,
-    fixed:"right",
-    render: () => 
-      <MarketingSMSHistoryActionTable/>
+    fixed: "right",
+    render: () => <MarketingSMSHistoryActionTable />,
   },
 ];
 
@@ -94,26 +92,39 @@ for (let i = 0; i < 100; i++) {
     module: "Khách hàng",
     trangthai: "Chưa gửi",
     telenumber: "0987656341",
-    content: "Chào chị Phượng, mình có lịch hẹn demo lúc 14:00 ngày 22/03/2022 nhé!",
+    content:
+      "Chào chị Phượng, mình có lịch hẹn demo lúc 14:00 ngày 22/03/2022 nhé!",
     sender: "Công ty Cổ phần Thanh toán Hưng Hà",
     date: "10:10 - 22/03/2022",
     telenumbersend: "0987654321",
   });
-  };
-
+}
 
 interface TableDataSMSFormProps {
   setSelected: (value: boolean) => void;
   setNumberSelected: any;
 }
 
-const TableDataSMSForm: React.FC<TableDataSMSFormProps> = ( any) => {
+const TableDataSMSForm: React.FC<TableDataSMSFormProps> = (any) => {
+  const [searchText, setSearchText] = useState("");
 
+  const filteredData = data.filter((item) =>
+    item.id.toString().includes(searchText)
+  );
   return (
-    <div style={{marginTop: "20px"}}>
+    <div style={{ marginTop: "20px" }}>
+      <input
+        type="text"
+        placeholder="Tìm kiếm theo ID"
+        value={searchText}
+        onChange={(e) => {
+          setSearchText(e.target.value);
+        }}
+      />
+
       <Table
         columns={columns}
-        dataSource={data}
+        dataSource={filteredData}
         bordered
         scroll={{ x: 1500, y: 400 }}
       />

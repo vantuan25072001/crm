@@ -27,12 +27,12 @@ export default function AddPersonalCustomerInfor() {
         </div>
       </div>
 
-      <div className={styles.row_input}>
+      {/* <div className={styles.row_input}>
         <div className={`${styles.mb_3} ${styles["col-lg-6"]}`}>
           <label className={`${styles["form-label"]}`}>Mẫu sms</label>
           <PotentialSelectBoxStep value="Chọn" placeholder="Chọn" />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

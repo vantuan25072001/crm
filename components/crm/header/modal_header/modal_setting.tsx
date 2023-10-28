@@ -1,5 +1,5 @@
 import style from "../header.module.css";
-import LogoutCRM from "../../logout/index";
+import LogoutCRM from "../../marketing/logout/index";
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";

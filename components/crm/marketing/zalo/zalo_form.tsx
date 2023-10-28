@@ -6,6 +6,7 @@ import { useHeader } from "@/components/crm/hooks/useHeader";
 import Link from "next/link";
 import InputGroup from "./zalo_form_input_group";
 import SMSFormTable from "../../table/table-marketing-sms-form";
+import { useDataZaloForm } from "./useDataZaloForm";
 
 const ZaloPersonalTable: React.FC = () => {
   const mainRef = useRef<HTMLDivElement>(null);
@@ -29,7 +30,6 @@ const ZaloPersonalTable: React.FC = () => {
     <>
       <div className={style.main__setting_email}>
         <div className={style.main_setting_body}>
-          <InputGroup />
           <SMSFormTable
             setSelected={function (value: boolean): void {
               throw new Error("Function not implemented.");

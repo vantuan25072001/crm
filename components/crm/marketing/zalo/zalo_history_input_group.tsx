@@ -4,7 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 
 export default function EmailFormInputGroup({ isSelectedRow }: any) {
-  const handleClickSelectoption = () => {};
   return (
     <div className={styles.main__control}>
       <div
@@ -50,6 +49,7 @@ export default function EmailFormInputGroup({ isSelectedRow }: any) {
             </button>
           </form>
         </div>
+
         <div className={`${styles.main__control_add} flex_end`}>
           <Link href="/marketing/sms/add">
             <button

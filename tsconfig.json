@@ -29,7 +29,9 @@
     "components/header/Header.js",
     "components/Layout.js",
     "components/test.js",
-    "components/footer/Footer.js"
-, "components/crm/logout/index.js", "components/crm/sidebar/sidebar.js"  ],
+    "components/footer/Footer.js",
+    "components/crm/marketing/logout/index.js",
+    "components/crm/sidebar/sidebar.js"
+  ],
   "exclude": ["node_modules"]
 }
