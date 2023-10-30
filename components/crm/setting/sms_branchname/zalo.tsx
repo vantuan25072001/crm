@@ -5,7 +5,6 @@ import { SidebarContext } from "@/components/crm/context/resizeContext";
 import { useHeader } from "@/components/crm/hooks/useHeader";
 import { Tabs } from "antd";
 import ZaloCaNhan from "./zalo_canhan";
-import ZaloHeThong from "./zalo_hethong";
 
 const SMSTable: React.FC = () => {
   const mainRef = useRef<HTMLDivElement>(null);
@@ -27,7 +26,7 @@ const SMSTable: React.FC = () => {
 
   const tabsItems = [
     {
-      label: `SMS cá nhân`,
+      label: `Zalo hệ thống`,
       key: "1",
       children: <ZaloCaNhan key={1} />,
     },

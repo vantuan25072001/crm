@@ -38,10 +38,10 @@ const SwitchBoardTable: React.FC = () => {
                 width="140"
                 height="46"
                 className={style.connect_img}
-                src="/crm/fpt.svg"
+                src="/crm/zalo.svg"
               />
-              <p className={style.connect_title}>FPT</p>
-              <Link href="/setting/switch_fpt">
+              <p className={style.connect_title}>ZALO</p>
+              <Link href="/setting/switch_zalo">
                 <button className={style.connect_button}>Kết nối</button>
               </Link>
             </div>

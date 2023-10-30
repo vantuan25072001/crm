@@ -31,7 +31,7 @@ const SMSCaNhanTable: React.FC = () => {
         <p className={style.setting_email_body__title}>
           Thiết lập Zalo Marketing
         </p>
-        <p>Kết nối Email để thực hiện các chiến dịch Zalo Marketting </p>
+        <p>Kết nối để thực hiện các chiến dịch Zalo Marketting </p>
         <div className={style.setting_email_body__connect}>
           <div className={style.setting_email_body__connect_item}>
             <img
@@ -40,7 +40,7 @@ const SMSCaNhanTable: React.FC = () => {
               src="/crm/zalo.svg"
             />
             <p className={style.connect_title}>Zalo</p>
-            <Link href="sms/add_zalo">
+            <Link href="/setting/switch_zalo">
               <button className={style.connect_button}>Kết nối</button>
             </Link>
           </div>

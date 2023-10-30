@@ -1,0 +1,40 @@
+.main {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+.main * {
+  box-sizing: border-box;
+}
+.main .content {
+  width: 100%;
+  max-width: 1200px;
+}
+.main .title {
+  padding-top: 24px;
+  text-align: center;
+  color: #333;
+  font-family: Roboto;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 135%;
+}
+.main .title span {
+  color: var(--Logo, #4c5bd4);
+  font-family: Roboto;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 135%; /* 37.8px */
+}
+.main .table1 {
+  width: 100%;
+  border: 1px solid #ccc;
+}
+
+@media (max-width: 414px) {
+  .main {
+    padding: 10px;
+  }
+}/*# sourceMappingURL=styles-table.module.css.map */
