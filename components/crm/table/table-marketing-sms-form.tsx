@@ -111,10 +111,6 @@ interface TableDataSMSFormProps {
 const TableDataSMSForm: React.FC<TableDataSMSFormProps> = (any) => {
   const { dataEnd, loading, error, fetchData } = useDataZaloForm();
 
-  console.log(dataEnd);
-
-  console.log(dataEnd[0]?.templateName);
-
   const [searchText, setSearchText] = useState(() => {
     // Lấy giá trị tìm kiếm từ localStorage khi trang được tải
     const savedSearchText = localStorage.getItem("searchText");

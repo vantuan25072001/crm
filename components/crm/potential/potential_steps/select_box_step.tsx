@@ -1,6 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "../potential.module.css";
 import PotentialDropDownDataStep from "./select_box_dropdown_data";
+import { useDataZaloForm } from "../../marketing/zalo/useDataZaloForm";
+import type { ColumnsType } from "antd/es/table";
+
 export default function PotentialSelectBoxStep({
   title = "",
   value = "Tất cả",
@@ -35,6 +38,8 @@ export default function PotentialSelectBoxStep({
     };
   }, []);
 
+  const { dataEnd, loading, error, fetchData } = useDataZaloForm();
+
   return (
     <div
       ref={dropdownRef}
@@ -49,9 +54,7 @@ export default function PotentialSelectBoxStep({
         tabIndex={-1}
         aria-hidden="true"
       >
-        <option value="" data-select2-id={3}>
-          {value}
-        </option>
+        <option value="" data-select2-id={3}></option>
       </select>
       <span
         className={`select2 ${styles.select2_container_step}`}

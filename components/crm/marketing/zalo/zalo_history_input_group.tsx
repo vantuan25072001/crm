@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import styles from "../../marketing/marketing.module.css";
 import Link from "next/link";
 import Image from "next/image";
+import { CallContext } from "../../context/tongdaiContext";
 
 export default function EmailFormInputGroup({ isSelectedRow }: any) {
   return (

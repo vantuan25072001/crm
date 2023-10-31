@@ -7,15 +7,20 @@ import { useHeader } from "@/components/crm/hooks/useHeader";
 import { Tabs } from "antd";
 import AddSMSFooter from "./switch_board_footer";
 import stylex from "../setting.module.css";
+import { CallContext } from "@/components/crm/context/tongdaiContext";
 import { useDataZalo } from "./useDataZalo";
-import ModalCompleteStep from "../email_step/complete_modal";
-import CancelModal from "../email_step/cancel_modal";
+import ModalCompleteStep from "../email_step/complete_modal_zalo";
+import CancelModal from "../email_step/cancel_modal_zalo";
 import Cookies from "js-cookie";
 import { useDispatch } from "react-redux";
+import useHistory from "react-router-dom";
+
 import {
   dataSaveTD,
   doDisConnect,
 } from "@/components/crm/redux/user/userSlice";
+
+import { createContext } from "react";
 
 const AddSMSTable: React.FC = () => {
   const mainRef = useRef<HTMLDivElement>(null);
@@ -24,6 +29,7 @@ const AddSMSTable: React.FC = () => {
   const imgRef = useRef<HTMLInputElement>(null);
   const [isVerify, setisVerify] = useState(false);
   const dispatch = useDispatch();
+  const { isConnected, setIsConnected } = useContext<any>(CallContext);
   const {
     headerTitle,
     setHeaderTitle,
@@ -32,7 +38,7 @@ const AddSMSTable: React.FC = () => {
   }: any = useHeader();
 
   const { dataApi, loading, error, fetchData } = useDataZalo();
-  console.log(dataApi);
+
   const [inputData, setInputData] = useState({
     app_id: dataApi?.app_id || "", // Sử dụng dataApi?.app_id để tránh lỗi nếu dataApi là undefined
     secret_key: dataApi?.secret_key || "",
@@ -64,6 +70,41 @@ const AddSMSTable: React.FC = () => {
     try {
       let accessToken = "";
       accessToken = Cookies.get("token_base365");
+
+      if (
+        !inputData.app_id ||
+        !inputData.secret_key ||
+        !inputData.access_token ||
+        !inputData.refresh_token
+      ) {
+        alert("Please fill in all fields.");
+        return;
+      }
+      const modifiedFields = [];
+
+      // Compare input values with default values
+      if (inputData.app_id !== dataApi.app_id) {
+        modifiedFields.push("Mã ứng dụng");
+      }
+      if (inputData.secret_key !== dataApi.secret_key) {
+        modifiedFields.push("Khóa bí mật");
+      }
+      if (inputData.access_token !== dataApi.access_token) {
+        modifiedFields.push("Mã truy cập");
+      }
+      if (inputData.refresh_token !== dataApi.refresh_token) {
+        modifiedFields.push("Mã làm mới");
+      }
+
+      if (modifiedFields.length > 0) {
+        alert(
+          `Trường đầu vào của bạn bị sai : ${modifiedFields.join(
+            ", "
+          )}. Please check your input .`
+        );
+        return;
+      }
+
       const response = await fetch(
         "http://210.245.108.202:3007/api/crm/marketingZalo/managerZalo",
         {
@@ -77,12 +118,28 @@ const AddSMSTable: React.FC = () => {
       );
 
       if (response.ok) {
-        // Xử lý khi kết nối thành công
         alert("Kết nối thành công !");
         setisVerify(true);
+        setIsConnected(true);
+        setModal1Open(true);
+
+        const history = useHistory();
+        history.push("/marketing/zalo");
       } else {
-        // Xử lý khi có lỗi trong kết nối
-        alert("Kết nối thất bại");
+        if (response.ok) {
+          alert("Kết nối thành công !");
+          setisVerify(true);
+          setIsConnected(true);
+          setModal1Open(true);
+        } else {
+          if (response.status === 401) {
+            alert("Unauthorized. Please check your credentials.");
+          } else if (response.status === 400) {
+            alert("Bad Request. Please check the input data.");
+          } else {
+            alert("Kết nối thất bại");
+          }
+        }
       }
     } catch (error) {
       // Xử lý lỗi khi gửi yêu cầu
@@ -198,21 +255,14 @@ const AddSMSTable: React.FC = () => {
                 </button>
               )}
             </div>
-            {
-              <CancelModal
-                isModalCancel={isModalCancel}
-                setIsModalCancel={setIsModalCancel}
-                content={"Cập nhật thành công"}
-                title={"Cập nhật"}
-                routerback={"#"}
-              />
-            }
+
             <ModalCompleteStep
               modal1Open={modal1Open}
               setModal1Open={setModal1Open}
               title={
-                "Kết nối tổng đài thành công!"
-                // : "Ngắt kết nối tổng đài thành công!"
+                isConnected
+                  ? "Kết nối tổng đài thành công!"
+                  : "Ngắt kết nối tổng đài thành công!"
               }
               routerback={"#"}
             />

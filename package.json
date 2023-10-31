@@ -110,7 +110,6 @@
     "react-organizational-chart": "^2.2.1",
     "react-paginate": "^8.2.0",
     "react-redux": "^8.1.1",
-    "react-router-dom": "^6.17.0",
     "react-scroll": "^1.8.9",
     "react-select": "^5.7.4",
     "react-simple-star-rating": "^5.1.7",

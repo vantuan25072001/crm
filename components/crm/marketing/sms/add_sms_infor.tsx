@@ -9,7 +9,7 @@ export default function AddPersonalCustomerInfor() {
 
       <div className={styles.row_input}>
         <div className={`${styles.mb_3} ${styles["col-lg-6"]}`}>
-          <label className={`${styles["form-label"]}`}>Số điện thoại gửi</label>
+          <label className={`${styles["form-label"]}`}>Mẫu template</label>
           <PotentialSelectBoxStep value="Chọn" placeholder="Chọn" />
         </div>
         <div className={`${styles.mb_3} ${styles["col-lg-6"]}`}>
@@ -26,13 +26,6 @@ export default function AddPersonalCustomerInfor() {
           <PotentialSelectBoxStep value="Chọn" placeholder="Chọn" />
         </div>
       </div>
-
-      {/* <div className={styles.row_input}>
-        <div className={`${styles.mb_3} ${styles["col-lg-6"]}`}>
-          <label className={`${styles["form-label"]}`}>Mẫu sms</label>
-          <PotentialSelectBoxStep value="Chọn" placeholder="Chọn" />
-        </div>
-      </div> */}
     </div>
   );
 }
