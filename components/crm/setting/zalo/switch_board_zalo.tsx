@@ -13,7 +13,6 @@ import ModalCompleteStep from "../email_step/complete_modal_zalo";
 import CancelModal from "../email_step/cancel_modal_zalo";
 import Cookies from "js-cookie";
 import { useDispatch } from "react-redux";
-import useHistory from "react-router-dom";
 
 import {
   dataSaveTD,
@@ -123,8 +122,8 @@ const AddSMSTable: React.FC = () => {
         setIsConnected(true);
         setModal1Open(true);
 
-        const history = useHistory();
-        history.push("/marketing/zalo");
+        // const history = useHistory();
+        // history.push("/marketing/zalo");
       } else {
         if (response.ok) {
           alert("Kết nối thành công !");
