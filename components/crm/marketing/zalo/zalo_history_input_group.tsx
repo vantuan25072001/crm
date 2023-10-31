@@ -52,7 +52,7 @@ export default function EmailFormInputGroup({ isSelectedRow }: any) {
         </div>
 
         <div className={`${styles.main__control_add} flex_end`}>
-          <Link href="/marketing/sms/add">
+          <Link href="/marketing/zalo/add">
             <button
               type="button"
               className={`${styles.dropbtn_add} flex_align_center`}

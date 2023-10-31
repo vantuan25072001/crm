@@ -24,7 +24,7 @@ const Zalo: React.FC = () => {
   useEffect(() => {
     setHeaderTitle("Marketing / Zalo");
     setShowBackButton(true);
-    setCurrentPath("/marketing/sms/dfdfd");
+    setCurrentPath("/marketing/zalo/");
   }, [setHeaderTitle, setShowBackButton, setCurrentPath]);
 
   const tabsItems = [

@@ -5,7 +5,7 @@ import { SidebarContext } from "@/components/crm/context/resizeContext";
 import { useHeader } from "@/components/crm/hooks/useHeader";
 import Link from "next/link";
 import InputGroup from "./zalo_history_input_group";
-import SMSHistoryTable from "../../table/table-marketing-sms-history";
+import SMSHistoryTable from "../../table/table-marketing-zalo-history";
 
 const ZaloPersonalTable: React.FC = () => {
   const mainRef = useRef<HTMLDivElement>(null);
@@ -20,9 +20,9 @@ const ZaloPersonalTable: React.FC = () => {
   }: any = useHeader();
 
   useEffect(() => {
-    setHeaderTitle("Marketing / SMS");
+    setHeaderTitle("Marketing / Zalo");
     setShowBackButton(true);
-    setCurrentPath("/marketing/sms");
+    setCurrentPath("/marketing/zalo");
   }, [setHeaderTitle, setShowBackButton, setCurrentPath]);
 
   return (

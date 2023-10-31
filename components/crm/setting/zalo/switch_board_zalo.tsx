@@ -121,7 +121,7 @@ const AddSMSTable: React.FC = () => {
         setisVerify(true);
         setIsConnected(true);
         setModal1Open(true);
-
+        window.location.href = "/crm/marketing/zalo";
         // const history = useHistory();
         // history.push("/marketing/zalo");
       } else {
